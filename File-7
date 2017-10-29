@@ -1,0 +1,33 @@
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"; //allow insecure connection while making request
+
+
+var waterfall = require('async/waterfall'); //execute functions in sequence
+waterfall([
+	login,
+  message,
+  logout,
+  ], function (err) {
+		if (!err) {
+			log('Successful.','green');
+			process.exit(0);
+		} else {
+			setTimeout( function() {
+				log(err,'red');
+				process.exit(1);
+    }, 3000); 	// quit after 3 seconds since fatal error happened
+		} 
+});
+
+
+
+var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
+eventEmitter.on("event",function(msg)
+{
+		console.log("event occured");
+	});
+ 
+eventEmitter.emit("event",msg);
+
+eventEmitter.removeAllListeners(["clearListener"]); //clear all listeners
