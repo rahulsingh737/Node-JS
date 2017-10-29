@@ -1,0 +1,39 @@
+var app = express();
+var server =  require('ws').Server;
+var minimist = require('minimist');
+var https = require('https');
+
+var argv = minimist(process.argv.slice(2), {
+	default: {
+		as_uri: 'https://localhost:5001/'
+	}
+});
+
+var options =
+{
+	key:  fs.readFileSync('keys/server.key'),
+	cert: fs.readFileSync('keys/server.crt')
+};
+
+var server = https.createServer(options, app).listen(5001, function() {
+	console.log('server started');
+	console.log('Open ' + url.format(asUrl) + ' with a browser');
+});
+
+wss.on('connection', function(ws)
+{
+	console.log("client connected");
+
+	ws.on('message',function(message)
+	{
+  }
+  
+  ws.on('error',function()
+	{
+		console.log('error occred on ws');	
+	});
+
+	ws.on('close',function()
+	{
+  }
+}
