@@ -10,3 +10,4 @@
    i.   Allowing secure connection problem(allow website in browser)
    ii.  Execute functions in sequence
    iii. Emit and handle events
+   iv.  change text color in console.
