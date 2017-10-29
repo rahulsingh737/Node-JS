@@ -5,8 +5,8 @@ xhttp.onreadystatechange = function() {
        document.getElementById("demo").innerHTML = xhttp.responseText;
     }
 };
-xhttp.open("GET", URL, true);
-  xhttp.withCredentials = true; //cross-site Access-Control requests 
+        xhttp.open("GET", URL, true);
+        xhttp.withCredentials = true; //cross-site Access-Control requests 
 	xhttp.setDisableHeaderCheck(true); //setting cookies
 	xhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 	xhttp.setRequestHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
