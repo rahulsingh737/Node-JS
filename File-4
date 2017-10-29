@@ -1,0 +1,49 @@
+function sql_connection()
+{
+	  var connection = mysql.createConnection({
+		host     : HOST,
+		user     : USERNAME,
+		password : PASSWORD,
+		port     : PORT,
+		database : DATABASE
+	});
+
+	connection.connect(function(err) {
+		if (err) {
+			console.error('Database connection failed: ' + err.stack);
+			connection.end();
+			return;
+		}
+
+		console.log('Connected to database.');
+	});
+
+	return connection;
+}
+
+
+function sql_query(A, B, C,connection,id)
+{
+	var query = 'SELECT * FROM TABLE where x="'+A+'" and y="'+B+'" and z="'+C+'"';
+	var query2 = 'INSERT INTO TABLE (x,y,z) VALUES ?'
+ 
+  connection.query(query,function(error,results,fields)
+	{
+		if(error)
+		{
+			console.log("Error:"+error);
+			connection.end();
+		}
+		else
+		{
+			console.log("results:"+JSON.stringify(results));
+		}
+	});
+  
+  var values = [[dentist,date,time]]; //can pass multiple data together
+  connection.query(query,[values],function(error,results,fields)
+	{
+  })
+}
+
+
