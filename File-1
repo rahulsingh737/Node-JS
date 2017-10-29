@@ -1,0 +1,17 @@
+var app = express()
+var port = process.env.PORT || 3000 //for uploading on aws beanstalk
+var path = require('path');
+
+app.listen(port, function () {
+	console.log('Server listening at http://localhost:3000')
+});
+
+app.post('/fulfil', jsonParser, function (req, res) {
+	if (!req.body) return res.sendStatus(400);
+  res.send("success");
+})
+
+app.get('/chatDB', jsonParser, function (req, res) {
+  console.log("path:"+path.join(__dirname +'/index.html'));
+    res.sendFile(path.join(__dirname +'/index.html'));
+});
