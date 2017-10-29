@@ -31,3 +31,24 @@ eventEmitter.on("event",function(msg)
 eventEmitter.emit("event",msg);
 
 eventEmitter.removeAllListeners(["clearListener"]); //clear all listeners
+
+
+
+
+function log(Str,color) //function to print string with passed color
+{
+	if(color=='red')
+	{
+		console.log("\x1b[31m", Str+'\n');
+	}
+	else if(color=='green')
+	{
+		console.log("\x1b[32m", Str+'\n');
+	}
+	else if(color=='white')
+	{
+		console.log("\x1b[37m", Str+'\n');
+	}
+	else
+		console.log("\x1b[33m", Str+'\n');
+}
